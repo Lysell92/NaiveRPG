@@ -12,7 +12,6 @@ namespace NaiveRPG.Models.Attacks
     public class Crunch : IAttack
     {
         public string AttackName => "Crunch";
-        int crunch = Random.Shared.Next(5, 10);
-        public int Damage => crunch;
+        public int Damage => Random.Shared.Next(5, 10);
     }
 }

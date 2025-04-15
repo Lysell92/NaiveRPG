@@ -9,7 +9,11 @@ namespace NaiveRPG.Models.Items
 {
     public class Shield : IItem
     {
-        public string getItemName() => "Shield";
-        public string getItemDescription() => "That is a dope shield, amazing";
+        public string ItemName { get; private set; }
+
+        public Shield()
+        {
+            ItemName = "Wooden Shield";
+        }
     }
 }

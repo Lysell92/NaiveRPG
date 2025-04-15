@@ -9,8 +9,6 @@ namespace NaiveRPG.Interfaces
 
     public interface IItem
     {
-	    public string ItemName();
-        public string ItemDescription();
-
+        string ItemName { get; }
     }
 }

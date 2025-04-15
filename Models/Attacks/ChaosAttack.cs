@@ -12,7 +12,6 @@ namespace NaiveRPG.Models.Attacks
     public class ChaosAttack : IAttack
     {
         public string AttackName => "Chaosattack";
-        int Chaosattack = Random.Shared.Next(1, 20);
-        public int Damage => Chaosattack;
+        public int Damage => Random.Shared.Next(1, 25);
     }
 }

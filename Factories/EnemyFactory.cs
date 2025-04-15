@@ -7,23 +7,17 @@ using NaiveRPG.Interfaces;
 using NaiveRPG.Models.Characters.Enemies;
 namespace NaiveRPG.Factories
 {
-    public class EnemyFactory
+    public static class EnemyFactory
     {
-        public static IEnemy GetEnemy(string enemyType)
+        public static IEnemy CreateEnemy(string enemyType)
         {
-            switch (enemyType)
+            return enemyType switch
             {
-                case "Gnoll":
-                    return new Gnoll();
-
-                case "Basilisk":
-                    return new Basilisk();
-
-                case "Hydra":
-                    return new Hydra();
-                default:
-                    throw new ArgumentException("Enemy doesn't exist mate");
-            }
+                "Gnoll" => new Gnoll("Gnoll Guardian"),
+                "Basilisk" => new Basilisk("Fierce Basilisk"),
+                "Hydra" => new Hydra("Mythical Hydra"),
+                _ => throw new ArgumentException("Enemy type doesn't exist.")
+            };
         }
     }
 }

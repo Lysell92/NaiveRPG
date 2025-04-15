@@ -10,7 +10,13 @@ namespace NaiveRPG.Services
 {
     public class GamePlay
     {
-        public void intro()
+        private Character aChar;
+
+        public GamePlay(Character character)
+        {
+            aChar = character;
+        }
+        public void Intro()
         {
             Console.Clear();
             Console.WriteLine("Welcome. The Fortress awaits you.\n You will face different creatures to combat and collect items from them.\n" +
@@ -18,33 +24,39 @@ namespace NaiveRPG.Services
             GameLogic.Continue();
             
             Console.WriteLine("You have walked for days in the fog. A Fortress suddenly appears, seemingly out of nowhere.");
-            Art fortressArt = new Art(Art.Fortress);
-            fortressArt.DisplayArt(4, 6);
             GameLogic.Continue();
-            fortressArt.ClearArt(4, 6);
+            Art FortressArt = new Art(Art.Fortress);
+            FortressArt.DisplayArt(20, 25);
+            GameLogic.Continue();
+            FortressArt.ClearArt(20, 25);
 
             Console.WriteLine("Guarding the gate is a 'Gnoll. It seems aggressive and is facing towards you.\n" +
             "It seems like there's no way around, but to engage in combat.");
-            Art GnollArt = new Art(Art.Gnoll);
-            GnollArt.DisplayArt(4, 6);
             GameLogic.Continue();
+            Art GnollArt = new Art(Art.Gnoll);
+            GnollArt.DisplayArt(20, 25);
+            GameLogic.Continue();
+            GnollArt.ClearArt(20, 25);
         }
-        public void MainFight()
+        public void BossEncounter()
         {
             Console.WriteLine("You've succeded and ventured further into the Fortress.\n Suddenly a giant Hydra reveals itself. Apparently it was invisible.\n" +
             "There's no escape. You must fight.");
-            Art HydraArt = new Art(Art.Hydra);
-            HydraArt.DisplayArt(4, 6);
             GameLogic.Continue();
+            Art HydraArt = new Art(Art.Hydra);
+            HydraArt.DisplayArt(20, 25);
+            GameLogic.Continue();
+            HydraArt.ClearArt(20, 25);
         }
 
         public void Ending()
         {
             Console.WriteLine("You've defeated the legendary Hydra and collected awesome loot. Congratulations :=)");
             Art SantaArt = new Art(Art.RandomSanta);
-            SantaArt.DisplayArt(4, 6);
             GameLogic.Continue();
-            SantaArt.ClearArt(4, 6);
+            SantaArt.DisplayArt(20, 25);
+            GameLogic.Continue();
+            SantaArt.ClearArt(20, 25);
         }
     }
 }

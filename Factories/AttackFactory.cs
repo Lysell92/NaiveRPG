@@ -7,7 +7,23 @@ using NaiveRPG.Interfaces;
 using NaiveRPG.Models.Attacks;
 namespace NaiveRPG.Factories
 {
-    internal class AttackFactory
+    public class AttackFactory
     {
+        public static IAttack GetAttack(string attackType)
+        {
+            switch (attackType)
+            {
+                case "WildSwing":
+                    return new WildSwing();
+
+                case "Crunch":
+                    return new Crunch();
+
+                case "ChaosAttack":
+                    return new ChaosAttack();
+                default:
+                    throw new ArgumentException("Attack doesn't exist mate");
+            }
+        }
     }
 }

@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using NaiveRPG.Interfaces;
 namespace NaiveRPG.Models.Items
-{ 
+{
     public class Boots : IItem
     {
-        public string getItemName() => "Boots";
-        public string getItemDescription() => "These boots are shiny, wow";
+        public string ItemName { get; private set; }
+
+        public Boots()
+        {
+            ItemName = "Leather Boots";
+        }
     }
 }

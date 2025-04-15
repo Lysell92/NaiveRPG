@@ -9,7 +9,11 @@ namespace NaiveRPG.Models.Items
 {
     public class Sword : IItem
     {
-        public string getItemName() => "Sword";
-        public string getItemDescription() => "A sword for the lord, thank you!";
+        public string ItemName { get; private set; }
+
+        public Sword()
+        {
+            ItemName = "Basic Sword";
+        }
     }
 }

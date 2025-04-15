@@ -5,6 +5,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using NaiveRPG.Models.Visuals;
+using NaiveRPG.Factories;
 using NaiveRPG.Models.Items;
 using NaiveRPG.Services;
 
@@ -12,25 +13,23 @@ namespace NaiveRPG.Services
 {
     public class GameLogic
     {
-        public static void ShowInventory()
+        public static void ShowInventory(Character aChar)
         {
-            Character aChar = new Character("Player1");
-            Console.WriteLine($"{aChar} now owns:");
+            Console.WriteLine($"{aChar.Name} now owns:");
             Console.WriteLine("---------------------------");
             Console.WriteLine($"Money  :  {aChar.GoldOwned} gold");
-            Console.WriteLine($"Boots  :  {(aChar.BootsOwned == null ? "(none)" : aChar.BootsOwned.ToString())}");
-            Console.WriteLine($"Shield :  {(aChar.ShieldOwned == null ? "(none)" : aChar.ShieldOwned.ToString())}");
-            Console.WriteLine($"Sword  :  {(aChar.SwordOwned == null ? "(none)" : aChar.SwordOwned.ToString())}");
+            Console.WriteLine($"Boots  :  {(aChar.BootsOwned != null ? aChar.BootsOwned.ToString() : "(none)")}");
+            Console.WriteLine($"Shield :  {(aChar.ShieldOwned != null ? aChar.ShieldOwned.ToString() : "(none)")}");
+            Console.WriteLine($"Sword  :  {(aChar.SwordOwned != null ? aChar.SwordOwned.ToString() : "(none)")}");
             Console.WriteLine();
-            Console.WriteLine();
-            Continue();
+            GameLogic.Continue();
         }
 
-        public static void RestartGame()
+        public static void ExitGame()
         {
             while (true)
             {
-                Console.WriteLine("Press Enter to restart the game, or Esc to quit.");
+                Console.WriteLine("Press Escape to quit the game. See you later :=)");
                 var key = Console.ReadKey(true);
                 if (key.Key == ConsoleKey.Escape)
                     break;

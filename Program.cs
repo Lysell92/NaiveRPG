@@ -1,3 +1,4 @@
-﻿
+﻿using NaiveRPG;
+
 Game aGame = new Game();
-aGame.Run();
+aGame.StartGame();
